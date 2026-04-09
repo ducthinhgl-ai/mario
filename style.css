@@ -1,0 +1,163 @@
+:root {
+    --bg-color: #2c3e50;
+    --text-color: #ecf0f1;
+    --primary-color: #e74c3c;
+    --hover-color: #c0392b;
+    --font-main: 'Press Start 2P', cursive, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#game-container {
+    position: relative;
+    width: 800px;
+    height: 450px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    background-color: #5c94fc; /* Mario sky blue */
+    border: 4px solid #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    image-rendering: pixelated;
+}
+
+#ui-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Let clicks pass through to child buttons */
+}
+
+.hud {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    font-size: 14px;
+    text-shadow: 2px 2px 0 #000;
+}
+
+.hud button {
+    pointer-events: auto;
+}
+
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto; /* Enable clicks */
+    transition: opacity 0.3s ease;
+}
+
+.screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.screen h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #f1c40f;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.screen p {
+    font-size: 10px;
+    margin-bottom: 40px;
+    color: #bdc3c7;
+    line-height: 1.8;
+    text-align: center;
+}
+
+button {
+    font-family: var(--font-main);
+    padding: 15px 30px;
+    font-size: 14px;
+    background-color: var(--primary-color);
+    color: white;
+    border: 4px solid white;
+    cursor: pointer;
+    transition: all 0.2s;
+    outline: none;
+}
+
+button:hover {
+    background-color: var(--hover-color);
+    transform: scale(1.05);
+}
+
+.settings-panel {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.settings-panel label {
+    font-size: 14px;
+    color: #f1c40f;
+}
+
+#speed-slider {
+    width: 250px;
+    cursor: pointer;
+}
+
+#player-name {
+    padding: 10px;
+    font-size: 12px;
+    font-family: var(--font-main);
+    border: 2px solid #fff;
+    border-radius: 4px;
+    background: #34495e;
+    color: #f1c40f;
+    text-align: center;
+    width: 250px;
+}
+
+#history-content table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10px;
+    color: #fff;
+    text-align: center;
+}
+#history-content th, #history-content td {
+    border: 1px solid #7f8c8d;
+    padding: 8px;
+}
+#history-content th {
+    background-color: #34495e;
+    color: #f1c40f;
+}
